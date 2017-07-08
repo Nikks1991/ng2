@@ -1,3 +1,20 @@
-<h1>
-  {{title}}
-</h1>
+<div class="">
+  <h1>{{title}}</h1>
+  <p>{{desc}}</p>
+  <br>
+  <ul>
+    <li *ngFor="let channel of channels">
+      <entityLikeDislike [entityName]="channel" (liked)="likeEmitted($event)" (disliked)="dislikeEmitted($event)"></entityLikeDislike>
+      <br>
+    </li>
+  </ul>
+
+  <ul>
+    <li *ngFor= "let channel of channelsPopularity">
+      Name: {{channel.name}}
+      <br>
+      Likes: {{channel.like}} | Dislikes: {{channel.dislike}}
+    </li>
+  </ul>
+
+</div>
