@@ -2,19 +2,27 @@
   <h1>{{title}}</h1>
   <p>{{desc}}</p>
   <br>
-  <ul>
-    <li *ngFor="let channel of channels">
-      <entityLikeDislike [entityName]="channel" (liked)="likeEmitted($event)" (disliked)="dislikeEmitted($event)"></entityLikeDislike>
-      <br>
-    </li>
-  </ul>
+  <div class="router-container">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="channel-container">
+    <ul>
+      <li *ngFor="let channel of channels">
+        <entityLikeDislike [entityName]="channel" (liked)="likeEmitted($event)" (disliked)="dislikeEmitted($event)"></entityLikeDislike>
+        <br>
+      </li>
+    </ul>
 
-  <ul>
-    <li *ngFor= "let channel of channelsPopularity">
-      Name: {{channel.name}}
-      <br>
-      Likes: {{channel.like}} | Dislikes: {{channel.dislike}}
-    </li>
-  </ul>
+    <ul>
+      <li *ngFor= "let channel of channelsPopularity">
+        Name: {{channel.name}}
+        <br>
+        Likes: {{channel.like}} | Dislikes: {{channel.dislike}}
+      </li>
+    </ul>
+  </div>
+
+  <br>
+
 
 </div>
